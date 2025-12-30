@@ -43,21 +43,18 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
 }
 
-/* you can set a style on hover for any module like this */
-#pulseaudio:hover {
-}
-
+/* WORKSPACES */
 #workspaces button {
-    padding: 0 11px;
+    padding: 0 9px;
     background-color: transparent;
     color: #ffffff;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    color: #000000;
 }
 
 #workspaces button.focused {
@@ -66,8 +63,7 @@ button:hover {
 }
 
 #workspaces button.active {
-    background-color: #ffffff;
-    color: #000000;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
@@ -95,9 +91,11 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
+#custom-power,
 #mpd {
     padding: 0 9px;
     background: transparent;
+    color: #ffffff;
 }
 
 #window,
@@ -115,15 +113,6 @@ button:hover {
     margin-right: 0;
 }
 
-#clock {
-}
-
-#battery {
-}
-
-#battery.charging, #battery.plugged {
-}
-
 @keyframes blink {
     to {
         background-color: #ffffff;
@@ -133,11 +122,6 @@ button:hover {
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 
 #power-profiles-daemon {
@@ -163,36 +147,12 @@ label:focus {
     background-color: #000000;
 }
 
-#cpu {
-}
-
-#memory {
-}
-
 #disk {
     background-color: #964B00;
 }
 
 #backlight {
     background-color: #90b1b1;
-}
-
-#network {
-}
-
-#network.disconnected {
-}
-
-#pulseaudio {
-}
-
-#pulseaudio.muted {
-}
-
-#wireplumber {
-}
-
-#wireplumber.muted {
 }
 
 #custom-media {
@@ -210,7 +170,7 @@ label:focus {
 }
 
 #custom-power {
-    font-weight: bold;
+    font-weight: 800;
     padding: 5px;
 }
 
@@ -220,9 +180,6 @@ label:focus {
 
 #temperature.critical {
     background-color: #eb4d4b;
-}
-
-#tray {
 }
 
 #tray > .passive {
