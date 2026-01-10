@@ -16,7 +16,7 @@
 		"mpris",
 		"pulseaudio",
 		"tray",
-    	"network",
+//    	"network",
 //        "cpu",
 //        "memory",
     	"battery",
@@ -27,15 +27,15 @@
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
-	"persistent-workspaces": {
-	    "*": 3
-	},
-	"active-only": false,
+		"persistent-workspaces": {
+		    "*": 3
+		},
+		"active-only": false,
         "format": "{name}"
     },
     "mpris": {
         "format": "{player_icon} {artist} - {title}",
-        "format-paused": "{player_icon} {artist} - {title}",
+        "format-paused": "{status_icon} {artist} - {title}",
         "player-icons": {
 //            "spotify": "",
 //            "firefox": "",
@@ -52,8 +52,7 @@
     "tray": {
 		"icon_size": 20,
 		"spacing": 10,
-		"expand": true,
-		"format": ""
+		"expand": true
 	},
     "clock": {
         // "timezone": "America/New_York",
@@ -95,8 +94,8 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": " {icon}",
         "format-muted": "0%  ",
         // "format-source": "{volume}% ",
         "format-source-muted": "",
@@ -106,7 +105,6 @@
             "headset": "",
             "phone": "",
             "portable": "",
-            "car": "",
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
