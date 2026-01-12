@@ -36,7 +36,7 @@ configuration {
 /*	case-smart: false;*/
 /*	cycle: true;*/
 /*	sidebar-mode: false;*/
-/*	hover-select: false;*/
+	hover-select: true;
 /*	eh: 1;*/
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
@@ -167,18 +167,12 @@ configuration {
   }
 }
 
-@theme "gruvbox-dark"
+@theme "/usr/share/rofi/themes/sidebar-v2.rasi"
 
-element {
-    orientation: horizontal;
-    children: [ element-text, element-icon ];
-    spacing: 5px;
+textbox-current-entry {
+	background-color: white;
 }
 
-element-text {
-    vertical-align: 0.5;
-}
-
-element-icon {
-    size: 2em;
+element selected normal {
+	background-color: white;
 }
