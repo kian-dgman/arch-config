@@ -52,14 +52,14 @@
     "tray": {
 		"icon_size": 20,
 		"spacing": 10,
-		"expand": true
+		"expand": false
 	},
     "clock": {
         // "timezone": "America/New_York",
 		"interval": 1,
-		"format": "{:%a %I:%M:%S %p}",
+		"format": "{:%a %d | %I:%M %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%a %Y-%m-%d | :%I:%M:%S %p}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -76,11 +76,9 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-plugged": "{capacity}% ",
         "format-charging": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
