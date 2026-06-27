@@ -13,14 +13,11 @@
         "clock"
     ],
     "modules-right": [
-		"mpris",
-		"pulseaudio",
-		"tray",
-//    	"network",
-//        "cpu",
-//        "memory",
-    	"battery",
-		"custom/power"
+        "mpris",
+        "pulseaudio",
+        "battery",
+        "tray",
+        "custom/power"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -28,7 +25,9 @@
         "all-outputs": true,
         "warp-on-scroll": false,
 		"persistent-workspaces": {
-		    "*": 3
+		    "1": [],
+            "2": [],
+            "3": []
 		},
 		"active-only": false,
         "format": "{name}"
@@ -46,8 +45,9 @@
             "paused": "󰏤"
         },
         "on-click": "playerctl play-pause",
-        "on-scroll-up": "playerctl volume +0.05",
-        "on-scroll-down": "playerctl volume -0.05"
+        "on-scroll-up": "playerctl volume +0.01",
+        "on-scroll-down": "playerctl volume -0.01",
+        "max-length": 30
     },
     "tray": {
 		"icon_size": 20,
@@ -59,7 +59,7 @@
 		"interval": 1,
 		"format": "{:%a %d | %I:%M %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%a %Y-%m-%d | :%I:%M:%S %p}"
+        "format-alt": "{:%a %Y-%m-%d | %I:%M:%S %p}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -90,7 +90,7 @@
 		"tooltip": false,
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
+        "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
         "format-bluetooth-muted": " {icon}",

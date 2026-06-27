@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
 }
 
@@ -40,25 +40,32 @@ button:hover {
 #workspaces button {
     padding: 0 9px;
     background-color: transparent;
-    color: #ffffff;
+    color: #30363d;
+    font-weight: 900;
 }
 
 #workspaces button:hover {
-    background: #ffffff;
-    color: #000000;
+    background: transparent;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 900;
+    box-shadow: none;
 }
 
 #workspaces button.active {
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 900;
+    box-shadow: none;
 }
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
+    color: #ffffff;
 }
 
 #mode {
@@ -83,15 +90,18 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #custom-power,
+#mpris,
 #mpd {
-    padding: 0 9px;
+    padding: 0 10px;
+    margin: 0 2px;
     background: transparent;
     color: #ffffff;
 }
 
-#window,
-#workspaces {
-    margin: 0 4px;
+#custom-power {
+    font-weight: 800;
+    padding: 0 10px;
+    margin-right: 5px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
