@@ -5,6 +5,9 @@ return {
       styles = {
         terminal = {
           height = 0.2,
+          wo = {
+            winbar = "",
+          },
         },
       },
     },

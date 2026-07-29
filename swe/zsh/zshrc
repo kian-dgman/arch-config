@@ -1,0 +1,75 @@
+#
+# ~/.zshrc
+#
+
+# USER BINARIES
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="/opt/apache-maven-3.8.8/bin:$PATH"
+export PATH="/opt/apache-ant-1.10.14/bin:$PATH"
+export PATH="/opt/gradle/gradle-8.10/bin:$PATH"
+
+export FZF_DEFAULT_COMMAND='fd --type f'
+[[ -f "$HOME/.ghcup/env" ]] && source "$HOME/.ghcup/env"
+
+# ALIASES
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias tm='tmux new-session -As dev'
+
+# History Settings
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt appendhistory incappendhistory hist_ignore_all_dups hist_ignore_space hist_reduce_blanks
+
+# Advanced Completions
+[[ -z "$LS_COLORS" ]] && eval "$(dircolors -b)"
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# Git VCS Configuration
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' formats '%F{#30363d}[%f%F{#ffffff}%b%f%F{#30363d}]%f %F{#8b949e}%c%u%f'
+zstyle ':vcs_info:git:*' actionformats '%F{#30363d}[%f%F{#ffffff}%b%f%F{#8b949e}|%a%F{#30363d}]%f %F{#8b949e}%c%u%f'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' unstagedstr '!'
+
+precmd() {
+    vcs_info
+}
+
+PROMPT='%F{#8b949e}%3~%f ${vcs_info_msg_0_}
+%F{#ffffff}➜%f '
+
+autoload -U add-zsh-hook
+load-venv() {
+    if [[ -d .venv ]]; then
+        source .venv/bin/activate
+    elif [[ -d venv ]]; then
+        source venv/bin/activate
+    elif [[ -n $VIRTUAL_ENV ]]; then
+        if [[ "$PWD" != "${VIRTUAL_ENV:h}"* ]]; then
+            deactivate
+        fi
+    fi
+}
+add-zsh-hook chpwd load-venv
+load-venv
+
+
+if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#30363d"
+fi
+
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
